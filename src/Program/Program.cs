@@ -20,7 +20,7 @@ namespace CompAndDel
             //Ejercicio2
             
             PictureProvider p1 = new PictureProvider();
-            IPicture pic1 = p1.GetPicture("..\\Adds\\índice.jpg");
+            IPicture pic1 = p1.GetPicture("..jpg\\Adds\\índice.");
             IPipe fifthpipe1= new PipeNull();
             IPipe fourthpipe1= new PipeSerial(new FilterSave(),fifthpipe1);
             IPipe thirdpipe1= new PipeSerial(new FilterNegative(), fourthpipe1);
