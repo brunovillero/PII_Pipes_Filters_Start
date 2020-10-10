@@ -6,6 +6,13 @@ namespace CompAndDel.Filters
     public class FilterSave :IFilter
     {
         private static int contador=0;
+        public static int Contador 
+        {
+            get
+            {
+                return contador;
+            }
+        }
 
         public IPicture Filter(IPicture image)
         {
