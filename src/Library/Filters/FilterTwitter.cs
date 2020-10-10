@@ -13,6 +13,8 @@ namespace CompAndDel.Filters
         public IPicture Filter(IPicture image)
         {
             var twitter = new TwitterImage(consumerKey, consumerKeySecret, accessToken, accessTokenSecret);
+            FilterSave save = new FilterSave();
+            save.Filter(image);
             twitter.PublishToTwitter("Ejercicio 4", $"..\\Adds\\{FilterSave.Contador.ToString()}.jpg");
             return image;
         }

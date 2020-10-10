@@ -33,17 +33,13 @@ namespace CompAndDel
             PictureProvider p2 = new PictureProvider();
             IPicture pic2 = p2.GetPicture("..\\Adds\\índice.jpg");
 
-            IPipe seventhpipe2 = new PipeNull();
+            IPipe fifthpipe2 = new PipeNull();
 
-            IPipe sixthpiper2 = new PipeSerial(new FilterTwitter(), seventhpipe2);
+            IPipe fourthpipe2 = new PipeSerial(new FilterTwitter(), fifthpipe2);
 
-            IPipe fifthpipe2 = new PipeSerial(new FilterSave(),sixthpiper2);
+            IPipe thirdpipe2 = new PipeSerial(new FilterNegative(), fourthpipe2);
 
-            IPipe fourthpipe2 = new PipeSerial(new FilterNegative(), fifthpipe2);
-
-            IPipe thirdpipe2 = new PipeSerial(new FilterTwitter(), fourthpipe2);
-
-            IPipe secondpipe2= new PipeSerial(new FilterSave(),thirdpipe2);
+            IPipe secondpipe2 = new PipeSerial(new FilterTwitter(), thirdpipe2);
 
             IPipe firstpipe2= new PipeSerial(new FilterGreyscale(),secondpipe2);
 
