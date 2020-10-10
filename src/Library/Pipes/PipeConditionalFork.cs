@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CompAndDel;
+using CompAndDel.Filters;
 
 namespace CompAndDel.Pipes
 {
     public class PipeConditionalFork : IPipe
     {
-        protected IFilter filtro;
+        protected FilterConditional filtro;
         IPipe next2Pipe;
         IPipe nextPipe;
         
@@ -18,7 +19,7 @@ namespace CompAndDel.Pipes
         /// <param name="tipoFiltro">Tipo de filtro que se debe aplicar sobre la imagen. Se crea un nuevo filtro con los parametros por defecto</param>
         /// <param name="nextPipe">Siguiente cañeria con filtro</param>
         /// <param name="next2Pipe">Siguiente cañeria sin filtro</param>
-        public PipeConditionalFork(IFilter filtro,IPipe nextPipe, IPipe next2Pipe) 
+        public PipeConditionalFork(FilterConditional filtro,IPipe nextPipe, IPipe next2Pipe) 
         {
             this.filtro=filtro;
             this.next2Pipe = next2Pipe;
@@ -32,8 +33,14 @@ namespace CompAndDel.Pipes
         /// <param name="picture">imagen a filtrar y enviar a las siguientes cañerías</param>
         public IPicture Send(IPicture picture)
         {
-            next2Pipe.Send(picture.Clone());
-            return this.nextPipe.Send(picture);
+            if (this.filtro.Filter(picture))
+            {
+                return nextPipe.Send(picture);
+            }
+            else
+            {
+                return next2Pipe.Send(picture);
+            }
         }
     }
 }
