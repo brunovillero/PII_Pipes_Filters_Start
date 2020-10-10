@@ -26,6 +26,7 @@ namespace CompAndDel
             IPipe thirdpipe1= new PipeSerial(new FilterNegative(), fourthpipe1);
             IPipe secondpipe1= new PipeSerial(new FilterSave(),thirdpipe1 );
             IPipe firstpipe1= new PipeSerial(new FilterGreyscale(),secondpipe1);
+            firstpipe1.Send(pic1);
             
         }
     }
