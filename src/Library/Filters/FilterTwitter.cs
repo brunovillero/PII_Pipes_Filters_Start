@@ -15,7 +15,7 @@ namespace CompAndDel.Filters
             var twitter = new TwitterImage(consumerKey, consumerKeySecret, accessToken, accessTokenSecret);
             FilterSave save = new FilterSave();
             save.Filter(image);
-            twitter.PublishToTwitter("Ejercicio 4", $"..\\Adds\\{FilterSave.Contador.ToString()}.jpg");
+            twitter.PublishToTwitter("Imagen nueva", $"..\\Adds\\{FilterSave.Contador.ToString()}.jpg");
             return image;
         }
     }
