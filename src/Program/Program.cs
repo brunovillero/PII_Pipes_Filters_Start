@@ -9,12 +9,12 @@ namespace CompAndDel
         static void Main(string[] args)
         {
             PictureProvider p = new PictureProvider();
-            IPicture pic = p.GetPicture("C:/Users/matia/c#/pipes-filter/PII_Pipes_Filters_Start/src/Adds/índice.jpg");
-            IFilter filter1 = new FilterGreyscale();
-            IPipe firstpipe = new PipeSerial(filter1, secondpipe);
-            IFilter filter2 = new FilterNegative();
-            IPipe secondpipe = new PipeSerial(filter2, );
+            IPicture pic = p.GetPicture("..\\Adds\\índice.jpg");
             IPipe thirdpipe = new PipeNull();
+            IPipe secondpipe = new PipeSerial(new FilterNegative(),thirdpipe );
+            IPipe firstpipe = new PipeSerial(new FilterGreyscale(),secondpipe);
+            p.SavePicture(firstpipe.Send(pic),"..\\Adds\\Ejercicio1.jpg");
+            
         }
     }
 }
