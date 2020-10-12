@@ -69,6 +69,12 @@ namespace CompAndDel
 
 
 
+            //Ejercicio5
+            PictureProvider p5 = new PictureProvider();
+            IPicture pic5 = p5.GetPicture("..\\Adds\\índice.jpg");
+            IPipe secondpipe5 = new PipeNull();
+            IPipe firstpipe5 = new PipeSerial(new FilterRandomConvolution(),secondpipe5);
+            p5.SavePicture(firstpipe5.Send(pic5),"..\\Adds\\Ejercicio5.jpg");
             
         }
     }
