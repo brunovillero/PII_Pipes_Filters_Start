@@ -8,10 +8,7 @@ namespace CompAndDel.Filters
     {
         protected int[,] matrizParametros;
         protected int complemento, divisor;
-        /// <summary>
-        /// Filtro complejo que suaviza los bordes de una imagen.
-        /// </summary>
-        /// <param name="name">Nombre del objeto</param>
+
         public FilterConvolution()
         {
             
